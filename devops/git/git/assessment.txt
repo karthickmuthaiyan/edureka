@@ -1,0 +1,102 @@
+Create your first repository, then add and commit files.
+Verify that you have Git installed
+Initialise the git repo.
+Check the newly created .git folder
+Configure your username and email address. 
+Create a Repository from GUI with Readme file.
+Generate the Personal Token from Github GUI.
+Clone a repository on local laptop
+Please make the default branch 'master'
+Create  2 files index.html and welcome.txt (with some text) using vi editor and save the files.
+Add proper tags (try from both from GUI and CLI)
+Add newly created files in git metadata.
+Commit the changes in Git with proper commit message ( show both option nano and direct command line)
+Check all the logs that should display all your commits with the author and hash.
+Push a specific object to a remote branch.
+Next try Pushing all the changes to a remote branch.
+Create one new feature branch 'development'.
+Create more branches in the same wayoutl0strokewidth0 
+Switch to Development branch.
+Modify 2 files index.html and welcome.txt (with some text) using
+
+A: List local branches git branch 
+List local branches verbose git branch -v 
+List remote and local branches git branch -a OR git branch --all 
+List remote and local branches (verbose) git branch -av 
+List remote branches git branch -r 
+List remote branches with latest commit git branch -rv 
+List merged branches git branch --merged 
+List unmerged branches git branch --no-merged 
+List branches containing commit git branch --contains []
+
+git add FILE and git checkout -- FILE To stage/unstage a file 
+git commit To save your changes. Those commits will be local and will not be "pushed" to the SVN repo, just like in a normal git repository 
+git stash and git stash pop Allows using stashes 
+git log Access all the history in the repository 
+git rebase -i so you can rewrite your local history freely 
+git branch and git checkout to create local branches
+
+A: 
+Create your first repository, then add and commit files.
+Verify that you have Git installed
+Initialise the git repo.
+Check the newly created .git folder
+Configure your username and email address. 
+Create a Repository from GUI with Readme file.
+Generate the Personal Token from Github GUI.
+Clone a repository on local laptop
+Please make the default branch 'master'
+Create  2 files index.html and welcome.txt (with some text) using vi editor and save the files.
+Add proper tags (try from both from GUI and CLI)
+Add newly created files in git metadata.
+Commit the changes in Git with proper commit message ( show both option nano and direct command line)
+Check all the logs that should display all your commits with the author and hash.
+Push a specific object to a remote branch.
+Next try Pushing all the changes to a remote branch.
+Create one new feature branch 'development'.
+Create more branches in the same wayoutl0strokewidth0 
+Switch to Development branch.
+Modify 2 files index.html and welcome.txt (with some text) using vi editor and save the files.
+Add the changes into git metadata.
+Stage All Changes to Files.
+Switch the branch to master.
+Make some changes in master files and switch back to development branch.
+Add one more file dev_file.txt in development branch.
+See the difference using git diff command (Should show unstaged changes on the current branch from the commit before it )
+Validate the same.
+Create more branches in the same way
+Commit everything and merge everything  in master branch.
+Delete  local and Remote Branches.
+
+
+
+Audience Question
+
+Q: yes
+
+A: List local branches git branch 
+List local branches verbose git branch -v 
+List remote and local branches git branch -a OR git branch --all 
+List remote and local branches (verbose) git branch -av 
+List remote branches git branch -r 
+List remote branches with latest commit git branch -rv 
+List merged branches git branch --merged 
+List unmerged branches git branch --no-merged 
+List branches containing commit git branch --contains []
+
+
+
+Audience Question
+
+Q: 1st set of commands did not paste fully after Modify 2 files... Can you pls check
+
+A: git add FILE and git checkout -- FILE To stage/unstage a file 
+git commit To save your changes. Those commits will be local and will not be "pushed" to the SVN repo, just like in a normal git repository 
+git stash and git stash pop Allows using stashes 
+git log Access all the history in the repository 
+git rebase -i so you can rewrite your local history freely 
+git branch and git checkout to create local branches
+
+
+
+
