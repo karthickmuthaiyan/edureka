@@ -1,0 +1,38 @@
+You are viewing Edureka Instructor's screen
+Meeting Chat
+Edureka Instructor
+To
+Everyone
+10:21:17 AM
+EI
+promhttp_metric_handler_requests_total
+rate(promhttp_metric_handler_requests_total{code="200"}[1m])
+Me
+To
+Edureka Instructor
+Direct Message
+10:38:50 AM
+KM
+yes
+Edureka Instructor
+To
+Everyone
+11:40:43 AM
+EI
+sudo apt-get install -y apt-transport-https
+sudo apt-get install -y software-properties-common wget
+wget -q -O - https://packages.grafana.com/gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/grafana.gpg > /dev/null
+echo "deb [signed-by=/etc/apt/trusted.gpg.d/grafana.gpg] https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list > /dev/null
+sudo apt-get update
+sudo apt-get install grafana
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
+sudo systemctl status grafana-server
+It will run from port 3000
+
+Who can see your messages? Recording On
+To:
+Edureka Instructor
+(Direct Message)
+Type message here ...
+talking:

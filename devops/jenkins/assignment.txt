@@ -1,0 +1,56 @@
+
+A: Jenkins Final Project - Please complete this project in today's class  
+#####################################################################
+
+Please Create AWS EC2 instance using Ubuntu O.S.
+Please generate the new Key pair.
+Create new security group which should have open for all ips (0.0.0.0/0) for port 22 , 80 , 443 , 8080 and all traffic.
+Login to the EC2 instance.
+Update the repository.
+Install "openjdk-11-jre"
+Get the gpg key using link "https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg"
+Install latest Jenkins on EC2 instance.
+
+Login to GUI and login to the Jenkins.
+Search the "initialAdminPassword" and provide the same to login to the Jenkins.
+
+Install custom plugins.
+
+Create Repository jenkins-java-job in Github GUI
+Create one directory "my-repos"
+Clone the jenkins-java-job repo inside the my-repos folder.
+Create file "HelloWorld.java" using below content :
+
+public class HelloWorld {
+
+ public static void main(String[] args) {
+
+  System.out.prin
+
+
+
+Audience Question
+
+Q: Could you please paste the information in chat I joined 2 mints late
+
+A:   System.out.println("Hello, World");
+
+ }
+
+}
+
+Add this file in the Git.
+Commit the file using GIT commands.
+Push this file to github's master branch.
+
+
+Generate the Personal Token from github.
+Save the github credential in Jenkins.
+Create Freestyle Jenkins Job using the above repository and credentials.
+Build the job and check the logs.
+
+
+Create one pipeline job using pipeline type of jobs.
+
+
+Note : Please create one word document and take the screenshots and submit the same.

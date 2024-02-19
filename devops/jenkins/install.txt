@@ -1,0 +1,10 @@
+Please create one AWS EC2 instance using Ubuntu 22.04 OS.
+You need to add the details for 8080 port in Security Group.
+sudo apt install openjdk-11-jre -y
+wget -qO - https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
+sudo sh -c 'echo deb [signed-by=/usr/share/keyrings/jenkins.gpg] http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update -y
+sudo apt install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins.service
+sudo systemctl status jenkins

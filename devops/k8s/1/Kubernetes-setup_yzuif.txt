@@ -1,0 +1,111 @@
+Important Links:
+
+https://www.linuxtechi.com/install-kubernetes-1-7-centos7-rhel7/
+https://www.linuxtechi.com/deploy-pod-replication-controller-service-kubernetes-1-7-on-centos-7/
+
+
+[root@server ~]# cat /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+[root@server ~]# yum install kubeadm kubectl kubelet -y
+
+[root@server ~]# systemctl start docker ; systemctl enable docker(Any containers like docker, Rocket, LXC, LXD)
+
+[root@server ~]# systemctl enable kubelet
+
+[root@server ~]# kubeadm init --apiserver-advertise-address=192.168.0.107 --pod-network-cidr=10.244.0.0/16
+
+[root@server ~]# mkdir -p $HOME/.kube
+[root@server ~]# sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+[root@server ~]# sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+[root@server ~]# kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+[root@server ~]# kubectl get pods -o wide --all-namespaces
+
+[root@server ~]# kubectl get nodes
+
+
+On the Kubernetes Nodes
+
+[root@server ~]# cat /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+[root@server ~]# yum install kubeadm kubectl kubelet -y
+
+[root@server ~]# systemctl start docker ; systemctl enable docker
+
+[root@server ~]# systemctl enable kubelet
+
+[root@server ~]# kubeadm join 192.168.0.107:6443 --token j0iiex.7k2ty3id5in58row --discovery-token-ca-cert-hash                  sha256:b181e4dae79c15d24a9fcdc3ef3f625eed026b98685e011b5580e1a2dba83dfe
+
+
+Manifests files:
+================
+[root@master ~]# cat pod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+  labels:
+   zone: prod
+   version: v1
+spec:
+  containers:
+  - name: sample-ctr
+    image: edurekadevops/ubuntu:sample
+    ports:
+    - containerPort: 8080
+
+
+[root@master ~]# cat deploy.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deploy
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: sample-app
+  template:
+   metadata:
+     labels:
+       app: sample-app
+   spec:
+    containers:
+    - name: sample-pod
+      image: edurekadevops/ubuntu:sample
+      ports:
+      - containerPort: 8080
+
+
+[root@master ~]# cat service.yml
+apiVersion: v1
+kind: Service
+metadata:
+ name: sample-svc
+ labels:
+  app: sample-app
+spec:
+ type: NodePort
+ ports:
+ - port: 8080
+   nodePort: 30005
+   protocol: TCP
+ selector:
+  app: sample-app
+
+
